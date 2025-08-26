@@ -1,13 +1,13 @@
 # OpenAI Whisper Audio Translator
 
-This is a Flask web application that uses OpenAI's Whisper API to transcribe audio files and then translate the transcribed text into different languages using GPT-4.
+This is a terminal-based application that uses OpenAI's Whisper API to transcribe audio files and then translate the transcribed text into different languages using GPT-4.
 
 ## Features
 
-- Upload audio files (MP3, M4A, WAV, etc.)
+- Upload or record audio (MP3, M4A, WAV, etc.)
 - Automatic speech-to-text transcription using Whisper
 - Translation into multiple languages using GPT-4
-- Web-based interface
+- Terminal-only interface (no web server)
 
 ## Setup Instructions
 
@@ -33,20 +33,20 @@ echo "OPENAI_API_KEY=your_actual_api_key_here" > .env
 
 ### 3. Run the Application
 
+Transcribe and translate an existing audio file:
 ```bash
-python main.py
+python3 main.py path/to/your_audio_file.m4a English
 ```
 
-The application will start on `http://localhost:5000`
+Or record from your microphone (default 10s) and translate:
+```bash
+python3 main.py --record 10 English
+```
 
-## How to Use
-
-1. Open your web browser and go to `http://localhost:5000`
-2. Select the target language for translation
-3. Upload an audio file
-4. Click "Translate Audio"
-5. Wait for the transcription and translation to complete
-6. View the results
+Interactive mode (choose record or file):
+```bash
+python3 main.py
+```
 
 ## Supported Audio Formats
 
@@ -54,7 +54,10 @@ The application will start on `http://localhost:5000`
 - M4A
 - WAV
 - FLAC
-- And other common audio formats
+- MP4
+- MPEG / MPGA
+- OGA / OGG
+- WEBM
 
 ## Supported Languages
 
@@ -69,17 +72,3 @@ The application will start on `http://localhost:5000`
 - Russian
 - Portuguese
 - Italian
-
-## Troubleshooting
-
-- Make sure you have a valid OpenAI API key
-- Ensure your audio file is not corrupted
-- Check that you have sufficient OpenAI API credits
-- For large audio files, the process may take longer
-
-## Requirements
-
-- Python 3.7+
-- OpenAI API key
-- Internet connection for API calls
-# openai-whisper-audio-translator-and-transcriber

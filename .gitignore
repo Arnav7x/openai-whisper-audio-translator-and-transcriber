@@ -45,3 +45,7 @@ ENV/
 
 # Logs
 *.log
+
+# Ignore sample audio files (keep folder)
+static/*
+!static/.gitkeep
